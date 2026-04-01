@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MASU // COURSES</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+<div class="scanline"></div>
+<div class="hex-overlay"></div>
+
+<!-- HEADER -->
+<header class="logo-header">
+  <div class="logo">
+    <span class="logo-symbol">📡</span>
+    <div class="logo-text">
+      <h1 class="glitch" data-text="COURSES">COURSES</h1>
+      <p class="subtitle">Free Knowledge Archive &nbsp;•&nbsp; Curated by MASU</p>
+    </div>
+  </div>
+  <p id="db-status" class="db-status">⟳ Initializing database...</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-links">
+    <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </div>
+</nav>
+
+<!-- SEARCH -->
+<div class="search-wrapper">
+  <div class="search-box">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" id="courseSearch" placeholder="search courses... e.g. linux, malware, devops" oninput="filterCourses()" autocomplete="off" />
+    <span id="search-count" class="search-count"></span>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="courses-main">
+
+  <!-- SECTION: TCM SECURITY -->
+  <section class="course-section" data-section="tcm">
+    <div class="section-header">
+      <div class="section-label">[CRITICAL]</div>
+      <h2 class="section-title"><i class="fas fa-skull"></i> TCM_SECURITY_ARCHIVE</h2>
+      <div class="section-line"></div>
+      <span class="section-count">5 courses</span>
+    </div>
+
+    <div class="grid-container">
+      <a href="https://drive.google.com/drive/folders/1D1_nqmhbCg082WvqJL3mKM_rqiOf-T-C" class="course-card" data-name="malware analysis triage tcm" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-shield-virus"></i></div>
+        <div class="course-info">
+          <span class="course-title">Malware Analysis & Triage</span>
+          <span class="course-meta">TCM Security • Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/drive/u/0/mobile/folders/1ghcMWrnp1f9d5K2uFfnX3XYIkwN8nH_Y" class="course-card" data-name="api hacking practical tcm" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-gears"></i></div>
+        <div class="course-info">
+          <span class="course-title">Practical API Hacking</span>
+          <span class="course-meta">TCM Security • Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/drive/u/0/mobile/folders/1WP612lTEeST8OozhD9Wakz9XwCYpezPc" class="course-card" data-name="web hacking advanced tcm burp" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-spider"></i></div>
+        <div class="course-info">
+          <span class="course-title">Advanced Web Hacking</span>
+          <span class="course-meta">TCM Security • Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/drive/u/0/mobile/folders/19XoTMjl7rolIwT4QdJ6sUnfs8Mn9Gg6p" class="course-card" data-name="linux privilege escalation privesc tcm" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fab fa-linux"></i></div>
+        <div class="course-info">
+          <span class="course-title">Linux Privilege Escalation</span>
+          <span class="course-meta">TCM Security • Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/drive/u/0/mobile/folders/1bB34nOV74dkhDVYvhFgdgKjaHoTa0RPz" class="course-card" data-name="windows privilege escalation privesc tcm" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fab fa-windows"></i></div>
+        <div class="course-info">
+          <span class="course-title">Windows Privilege Escalation</span>
+          <span class="course-meta">TCM Security • Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: TECH STACK -->
+  <section class="course-section" data-section="general">
+    <div class="section-header">
+      <div class="section-label">[GENERAL]</div>
+      <h2 class="section-title"><i class="fas fa-database"></i> TECH_STACK_DATA</h2>
+      <div class="section-line"></div>
+      <span class="section-count">8 courses</span>
+    </div>
+
+    <div class="grid-container">
+      <a href="https://drive.google.com/folderview?id=15JEoEUqzmJ6q06TjJeJr0bgK5UMXD2CG" class="course-card" data-name="networking cisco tcp ip" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="course-info">
+          <span class="course-title">Networking</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=1NutVlzffKdfaNxa07evP86xq16z3cJEp" class="course-card" data-name="devops docker kubernetes cicd" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-infinity"></i></div>
+        <div class="course-info">
+          <span class="course-title">DevOps</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=1q4xdAL9vr1_qDEzEOF52oSBU8Q902ex-" class="course-card" data-name="big data hadoop spark" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-database"></i></div>
+        <div class="course-info">
+          <span class="course-title">Big Data</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=1GSM4Ws9FLrQm5vFIbKoZLSAaqBQ3VGu9" class="course-card" data-name="rest api http json backend" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-cloud-arrow-down"></i></div>
+        <div class="course-info">
+          <span class="course-title">REST API</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=1OAN-zlN0ONEQCgsoKZJYkQsRM6H6MkM_" class="course-card" data-name="selenium automation testing browser" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-vial"></i></div>
+        <div class="course-info">
+          <span class="course-title">Selenium Automation</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=1-Teu-m-2jHdQ2H0ROvCDo0QDC_BLmNY1" class="course-card" data-name="spring microservices java backend" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-leaf"></i></div>
+        <div class="course-info">
+          <span class="course-title">Spring Microservices</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=18VSbzV8mhPMDCCftqZ3Qm29JaAVfqYkC" class="course-card" data-name="postgresql database sql" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-server"></i></div>
+        <div class="course-info">
+          <span class="course-title">PostgreSQL</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+
+      <a href="https://drive.google.com/folderview?id=1CfS2BA74wtmBJIIsyUFaNU1X9uMlF-Dk" class="course-card" data-name="nlp deep learning ai machine learning" target="_blank" rel="noopener">
+        <div class="course-icon"><i class="fas fa-robot"></i></div>
+        <div class="course-info">
+          <span class="course-title">NLP & Deep Learning</span>
+          <span class="course-meta">Google Drive</span>
+        </div>
+        <i class="fas fa-external-link-alt course-arrow"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- No results msg -->
+  <div id="no-results" class="no-results" style="display:none;">
+    <i class="fas fa-circle-xmark"></i>
+    <p>No courses found for "<span id="no-results-term"></span>"</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p class="footer-brand">☣ MASU CYBER ACADEMY</p>
+    <p class="footer-sub">Free knowledge for the community &nbsp;|&nbsp; Addis Ababa, Ethiopia</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

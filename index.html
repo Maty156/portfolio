@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MASU // MATYAS ABRAHAM</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+<div class="scanline"></div>
+<div class="hex-overlay"></div>
+
+<!-- HEADER -->
+<header class="logo-header">
+  <div class="logo">
+    <span class="logo-symbol">☣</span>
+    <div class="logo-text">
+      <h1 class="glitch" data-text="MATYAS">MATYAS</h1>
+      <p class="subtitle">Offensive Security &nbsp;•&nbsp; Linux Systems &nbsp;•&nbsp; Web Exploitation</p>
+    </div>
+  </div>
+  <div class="header-meta">
+    <span class="meta-tag">// ADDIS ABABA, ET</span>
+    <span class="meta-tag online">● ONLINE</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-links">
+    <a href="#about"><i class="fas fa-user-secret"></i> About</a>
+    <a href="#skills"><i class="fas fa-chart-bar"></i> Skills</a>
+    <a href="#tools"><i class="fas fa-toolbox"></i> Arsenal</a>
+    <a href="#projects"><i class="fas fa-code-branch"></i> Projects</a>
+    <a href="courses.html" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Courses</a>
+    <a href="#terminal"><i class="fas fa-terminal"></i> Terminal</a>
+  </div>
+</nav>
+
+<!-- ABOUT -->
+<section id="about" class="card reveal">
+  <div class="card-label">// 01 — FOUNDER</div>
+  <h2>Matyas Abraham</h2>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Cybersecurity student and self-taught hacker from <span class="t-green">Addis Ababa, Ethiopia</span>. Passionate about exploring the depths of technology — from building and customizing Linux environments to diving deep into ethical hacking and penetration testing.</p>
+      <p>I turn complex problems into hands-on projects: configuring Arch + Hyprland from scratch, building interactive security tools, custom ROM flashing, and crafting open-source automation scripts under the <span class="t-green">MASU</span> brand.</p>
+      <p>I approach learning like a hacker — with curiosity, persistence, and creativity. Founder of <span class="t-green">MASU Cyber Academy</span>, building a hacker learning community for everyone.</p>
+
+      <div class="about-badges">
+        <span class="badge"><i class="fab fa-linux"></i> Arch Linux</span>
+        <span class="badge"><i class="fas fa-shield-halved"></i> BlackArch</span>
+        <span class="badge"><i class="fas fa-ethernet"></i> Hyprland</span>
+        <span class="badge"><i class="fab fa-github"></i> Open Source</span>
+        <span class="badge"><i class="fas fa-globe-africa"></i> Ethiopia</span>
+      </div>
+    </div>
+
+    <div class="about-stats">
+      <div class="stat">
+        <span class="stat-num">1</span>
+        <span class="stat-label">THM Cert</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Lessons</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8+</span>
+        <span class="stat-label">Tools</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Curiosity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="card reveal">
+  <div class="card-label">// 02 — SKILLS</div>
+  <h2>Skill Dashboard</h2>
+
+  <div class="skill">
+    <div class="skill-header"><p><i class="fab fa-linux"></i> Arch Linux / Terminal</p><span>88%</span></div>
+    <div class="bar"><span class="bar-fill" data-width="88"></span></div>
+  </div>
+  <div class="skill">
+    <div class="skill-header"><p><i class="fas fa-scroll"></i> Bash Scripting</p><span>80%</span></div>
+    <div class="bar"><span class="bar-fill" data-width="80"></span></div>
+  </div>
+  <div class="skill">
+    <div class="skill-header"><p><i class="fas fa-code"></i> Frontend Dev</p><span>78%</span></div>
+    <div class="bar"><span class="bar-fill" data-width="78"></span></div>
+  </div>
+  <div class="skill">
+    <div class="skill-header"><p><i class="fas fa-spider"></i> Web Security</p><span>65%</span></div>
+    <div class="bar"><span class="bar-fill" data-width="65"></span></div>
+  </div>
+  <div class="skill">
+    <div class="skill-header"><p><i class="fas fa-network-wired"></i> Networking</p><span>60%</span></div>
+    <div class="bar"><span class="bar-fill" data-width="60"></span></div>
+  </div>
+  <div class="skill">
+    <div class="skill-header"><p><i class="fab fa-python"></i> Python</p><span>35%</span></div>
+    <div class="bar"><span class="bar-fill yellow" data-width="35"></span></div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="card reveal">
+  <div class="card-label">// 03 — ARSENAL</div>
+  <h2>Cyber Arsenal</h2>
+
+  <div class="tools-grid">
+    <div class="tool-item">
+      <i class="fab fa-linux"></i>
+      <span>Arch Linux</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-skull-crossbones"></i>
+      <span>BlackArch</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-window-maximize"></i>
+      <span>Hyprland</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-terminal"></i>
+      <span>Bash / ZSH</span>
+    </div>
+    <div class="tool-item">
+      <i class="fab fa-git-alt"></i>
+      <span>Git</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-spider"></i>
+      <span>Burp Suite</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-syringe"></i>
+      <span>SQLMap</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-satellite-dish"></i>
+      <span>Nmap</span>
+    </div>
+    <div class="tool-item">
+      <i class="fas fa-wifi"></i>
+      <span>Wireshark</span>
+    </div>
+    <div class="tool-item">
+      <i class="fab fa-python"></i>
+      <span>Python</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="card reveal">
+  <div class="card-label">// 04 — PROJECTS</div>
+  <h2>Build Log</h2>
+
+  <div class="projects-grid">
+    <a href="https://github.com/Maty156/masu-hyprland-installer" target="_blank" class="project">
+      <div class="project-header">
+        <i class="fas fa-desktop"></i>
+        <span class="proj-tag">v2.3</span>
+      </div>
+      <h3>MASU Hyprland Installer</h3>
+      <p>Full Hyprland rice with pywal dynamic colors, waybar, wofi, dunst, hyprlock & SDDM. Multi-distro support.</p>
+      <div class="proj-footer"><i class="fab fa-github"></i> github.com/Maty156</div>
+    </a>
+
+    <a href="https://github.com/Maty156/masu-terminal-installer" target="_blank" class="project">
+      <div class="project-header">
+        <i class="fas fa-terminal"></i>
+        <span class="proj-tag">v7</span>
+      </div>
+      <h3>MASU Terminal Installer</h3>
+      <p>Bash script automating a full ZSH environment: Powerlevel10k, plugins, Nerd Font, multi-distro OS detection.</p>
+      <div class="proj-footer"><i class="fab fa-github"></i> github.com/Maty156</div>
+    </a>
+
+    <a href="/courses.html" target="_blank" class="project">
+      <div class="project-header">
+        <i class="fas fa-graduation-cap"></i>
+        <span class="proj-tag">LIVE</span>
+      </div>
+      <h3>MASU Free Courses</h3>
+      <p>Hacker-themed cybersecurity Free Courses platform. , custom hacker UI frontend.</p>
+      <div class="proj-footer"><i class="fab fa-github"></i> github.com/Maty156</div>
+    </a>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<section id="terminal" class="card reveal">
+  <div class="card-label">// 05 — TERMINAL</div>
+  <h2>MASU Terminal</h2>
+
+  <div class="terminal" id="terminalBox">
+    <p><span class="t-green">MASU Terminal v1.0</span> — type <span class="t-green">help</span> to begin</p>
+  </div>
+
+  <div class="terminal-input-row">
+    <span class="prompt">masu@root:~$&nbsp;</span>
+    <span class="cursor">█</span>
+    <input id="terminalInput" autocomplete="off" spellcheck="false" />
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p class="footer-brand">☣ MASU CYBER ACADEMY</p>
+    <p class="footer-sub">Learn • Build • Hack &nbsp;|&nbsp; Addis Ababa, Ethiopia</p>
+    <div class="footer-links">
+      <a href="https://github.com/Maty156" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
