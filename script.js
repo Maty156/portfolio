@@ -71,6 +71,18 @@ if (revealEls.length) {
 const terminalInput = document.getElementById("terminalInput");
 const terminalBox   = document.getElementById("terminalBox");
 
+function typeIntro(text) {
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      terminalBox.innerHTML += text[i];
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 20);
+}
+
 if (terminalInput && terminalBox) {
   // auto focus on click anywhere
   document.addEventListener("click", () => terminalInput.focus());
@@ -212,4 +224,51 @@ function filterCourses() {
   if (countEl) {
     countEl.textContent = q ? `${shown} result${shown !== 1 ? "s" : ""}` : "";
   }
+}
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (scrollY >= top) current = section.getAttribute("id");
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
+});
+
+function setFilter(type) {
+  document.querySelectorAll(".course-section").forEach(sec => {
+    if (type === "all") {
+      sec.style.display = "";
+    } else {
+      sec.style.display = sec.dataset.section === type ? "" : "none";
+    }
+  });
+}
+
+function setFilter(type) {
+  const buttons = document.querySelectorAll(".course-filters button");
+
+  buttons.forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  event.target.classList.add("active");
+
+  document.querySelectorAll(".course-section").forEach(sec => {
+    if (type === "all") {
+      sec.style.display = "";
+    } else {
+      sec.style.display = sec.dataset.section === type ? "" : "none";
+    }
+  });
 }

@@ -814,3 +814,82 @@ footer {
   .projects-grid { grid-template-columns: 1fr; }
   nav a { padding: 10px 10px; font-size: 11px; }
 }
+
+/* Glow depth levels */
+.glow-soft { text-shadow: 0 0 6px var(--green); }
+.glow-mid  { text-shadow: 0 0 12px var(--green); }
+.glow-hard { text-shadow: 0 0 24px var(--green); }
+
+/* Card hover elevation */
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Smooth transitions globally */
+* {
+  transition: all 0.2s ease;
+}
+
+.project {
+  background: linear-gradient(180deg, #020202, #000);
+}
+
+.project:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 10px 40px rgba(0,255,156,0.08);
+}
+
+/* FILTER BAR */
+.course-filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto 10px;
+  flex-wrap: wrap;
+}
+
+/* BUTTON BASE */
+.course-filters button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* HOVER EFFECT */
+.course-filters button:hover {
+  color: var(--green);
+  border-color: var(--green-dim);
+  background: var(--green-faint);
+  box-shadow: 0 0 12px rgba(0,255,156,0.08);
+}
+
+/* ACTIVE BUTTON */
+.course-filters button.active {
+  color: var(--green);
+  border-color: var(--green);
+  background: rgba(0,255,156,0.08);
+  box-shadow: 0 0 14px rgba(0,255,156,0.15);
+}
+
+/* SMALL GLOW LINE */
+.course-filters button::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 20%;
+  width: 0%;
+  height: 1px;
+  background: var(--green);
+  transition: width 0.3s;
+}
+
+.course-filters button:hover::after {
+  width: 60%;
+}
