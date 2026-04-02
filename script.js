@@ -1,5 +1,5 @@
 /* =============================================
-   MASU CYBER ACADEMY — script.js
+   MASU PORTFOLIO — script.js
    ============================================= */
 
 // ── MATRIX EFFECT ──────────────────────────────
@@ -122,6 +122,49 @@ if (terminalInput && terminalBox) {
     }
   });
 }
+
+let history = [];
+let historyIndex = -1;
+
+terminalInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const raw = this.value.trim();
+    printLine(`<span class="prompt">masu@root:~$</span> ${raw}`);
+
+    if (raw !== "") {
+      history.push(raw);
+      historyIndex = history.length;
+    }
+
+    const cmd = raw.toLowerCase();
+
+    if (commands[cmd]) {
+      commands[cmd]();
+    } else if (cmd !== "") {
+      printLine(`<span style="color:#444">command not found:</span> ${raw}`);
+    }
+
+    this.value = "";
+  }
+
+  // ⬆️ UP ARROW (history)
+  if (e.key === "ArrowUp") {
+    if (historyIndex > 0) {
+      historyIndex--;
+      this.value = history[historyIndex];
+    }
+  }
+
+  // ⬇️ DOWN ARROW
+  if (e.key === "ArrowDown") {
+    if (historyIndex < history.length - 1) {
+      historyIndex++;
+      this.value = history[historyIndex];
+    } else {
+      this.value = "";
+    }
+  }
+});
 
 // ── DB STATUS ──────────────────────────────────
 window.addEventListener("load", () => {
