@@ -31,7 +31,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--green);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Fira Code', monospace;
   overflow-x: hidden;
   line-height: 1.6;
 }

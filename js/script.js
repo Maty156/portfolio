@@ -84,9 +84,11 @@ function typeIntro(text) {
 }
 
 if (terminalInput && terminalBox) {
-  // auto focus on click anywhere
-  document.addEventListener("click", () => terminalInput.focus());
-  setTimeout(() => terminalInput.focus(), 200);
+  // auto focus when clicking inside the terminal section
+  const terminalSection = document.getElementById("terminal");
+  if (terminalSection) {
+    terminalSection.addEventListener("click", () => terminalInput.focus());
+  }
 
   function printLine(text, cls = "") {
     const p = document.createElement("p");
