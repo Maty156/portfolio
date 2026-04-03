@@ -334,6 +334,15 @@ if (bootScreen && bootLog && mainContent) {
         }
       }, delay);
     });
+
+    // Fallback exactly in case JS halts or hangs
+    setTimeout(() => {
+      bootScreen.style.display = "none";
+      mainContent.style.display = "block";
+      mainContent.style.opacity = 1;
+      sessionStorage.setItem("booted", "true");
+    }, 4000);
+    
   } else {
     bootScreen.style.display = "none";
     mainContent.style.display = "block";
