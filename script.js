@@ -8,16 +8,16 @@ if (canvas) {
   const ctx = canvas.getContext("2d");
 
   function resizeCanvas() {
-    canvas.width  = window.innerWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
 
-  const letters  = "01MASU$#☣>_";
+  const letters = "01MASU$#☣>_";
   const fontSize = 14;
   let columns = Math.floor(canvas.width / fontSize);
-  let drops   = Array(columns).fill(1);
+  let drops = Array(columns).fill(1);
 
   function drawMatrix() {
     ctx.fillStyle = "rgba(0,0,0,0.05)";
@@ -69,7 +69,7 @@ if (revealEls.length) {
 
 // ── TERMINAL ───────────────────────────────────
 const terminalInput = document.getElementById("terminalInput");
-const terminalBox   = document.getElementById("terminalBox");
+const terminalBox = document.getElementById("terminalBox");
 
 function typeIntro(text) {
   let i = 0;
@@ -119,64 +119,53 @@ if (terminalInput && terminalBox) {
     clear: () => { terminalBox.innerHTML = ""; },
   };
 
+  let history = [];
+  let historyIndex = -1;
+
   terminalInput.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       const raw = this.value.trim();
       printLine(`<span class="prompt">masu@root:~$</span> ${raw}`);
+
+      if (raw !== "") {
+        history.push(raw);
+        historyIndex = history.length;
+      }
+
       const cmd = raw.toLowerCase();
       if (cmd === "") { this.value = ""; return; }
+
       if (commands[cmd]) {
         commands[cmd]();
       } else {
         printLine(`<span style="color:#444">command not found:</span> ${raw}`);
       }
+
       this.value = "";
+    }
+
+    // ⬆️ UP ARROW (history)
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        historyIndex--;
+        this.value = history[historyIndex];
+      }
+    }
+
+    // ⬇️ DOWN ARROW
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (historyIndex < history.length - 1) {
+        historyIndex++;
+        this.value = history[historyIndex];
+      } else if (historyIndex === history.length - 1) {
+        historyIndex++;
+        this.value = "";
+      }
     }
   });
 }
-
-let history = [];
-let historyIndex = -1;
-
-terminalInput.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    const raw = this.value.trim();
-    printLine(`<span class="prompt">masu@root:~$</span> ${raw}`);
-
-    if (raw !== "") {
-      history.push(raw);
-      historyIndex = history.length;
-    }
-
-    const cmd = raw.toLowerCase();
-
-    if (commands[cmd]) {
-      commands[cmd]();
-    } else if (cmd !== "") {
-      printLine(`<span style="color:#444">command not found:</span> ${raw}`);
-    }
-
-    this.value = "";
-  }
-
-  // ⬆️ UP ARROW (history)
-  if (e.key === "ArrowUp") {
-    if (historyIndex > 0) {
-      historyIndex--;
-      this.value = history[historyIndex];
-    }
-  }
-
-  // ⬇️ DOWN ARROW
-  if (e.key === "ArrowDown") {
-    if (historyIndex < history.length - 1) {
-      historyIndex++;
-      this.value = history[historyIndex];
-    } else {
-      this.value = "";
-    }
-  }
-});
 
 // ── DB STATUS ──────────────────────────────────
 window.addEventListener("load", () => {
@@ -191,15 +180,15 @@ window.addEventListener("load", () => {
 
 // ── COURSE SEARCH ──────────────────────────────
 function filterCourses() {
-  const input   = document.getElementById("courseSearch");
-  const noRes   = document.getElementById("no-results");
-  const noTerm  = document.getElementById("no-results-term");
+  const input = document.getElementById("courseSearch");
+  const noRes = document.getElementById("no-results");
+  const noTerm = document.getElementById("no-results-term");
   const countEl = document.getElementById("search-count");
   if (!input) return;
 
-  const q     = input.value.toLowerCase().trim();
+  const q = input.value.toLowerCase().trim();
   const cards = document.querySelectorAll(".course-card");
-  let   shown = 0;
+  let shown = 0;
 
   cards.forEach(card => {
     const name = (card.dataset.name || "").toLowerCase();
@@ -245,24 +234,12 @@ window.addEventListener("scroll", () => {
   });
 });
 
-function setFilter(type) {
-  document.querySelectorAll(".course-section").forEach(sec => {
-    if (type === "all") {
-      sec.style.display = "";
-    } else {
-      sec.style.display = sec.dataset.section === type ? "" : "none";
-    }
-  });
-}
-
-function setFilter(type) {
-  const buttons = document.querySelectorAll(".course-filters button");
-
-  buttons.forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  event.target.classList.add("active");
+function setFilter(type, btnElement) {
+  if (btnElement) {
+    const buttons = document.querySelectorAll(".course-filters button");
+    buttons.forEach(btn => btn.classList.remove("active"));
+    btnElement.classList.add("active");
+  }
 
   document.querySelectorAll(".course-section").forEach(sec => {
     if (type === "all") {
