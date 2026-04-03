@@ -16,9 +16,15 @@
 
 <body>
 
-  <canvas id="matrix"></canvas>
-  <div class="scanline"></div>
-  <div class="hex-overlay"></div>
+  <!-- BOOT SEQUENCE overlay -->
+  <div id="boot-screen">
+    <div id="boot-log"></div>
+  </div>
+
+  <div id="main-content" style="display: none; opacity: 0; transition: opacity 1s;">
+    <canvas id="matrix"></canvas>
+    <div class="scanline"></div>
+    <div class="hex-overlay"></div>
 
   <!-- HEADER -->
   <header class="logo-header">
@@ -51,7 +57,7 @@
   <!-- ABOUT -->
   <section id="about" class="card reveal">
     <div class="card-label">// 01 — FOUNDER</div>
-    <h2>Matyas Abraham</h2>
+    <h2 class="glitch-target">Matyas Abraham</h2>
 
     <div class="about-grid">
       <div class="about-text">
@@ -97,7 +103,7 @@
   <!-- SKILLS -->
   <section id="skills" class="card reveal">
     <div class="card-label">// 02 — SKILLS</div>
-    <h2>Cyber Capabilities</h2>
+    <h2 class="glitch-target">Cyber Capabilities</h2>
 
     <div class="skills-ring-grid">
       <svg width="0" height="0" style="position:absolute;">
@@ -190,7 +196,7 @@
   <!-- TOOLS -->
   <section id="tools" class="card reveal">
     <div class="card-label">// 03 — ARSENAL</div>
-    <h2>Cyber Arsenal</h2>
+    <h2 class="glitch-target">Cyber Arsenal</h2>
 
     <div class="tools-grid">
       <div class="tool-item">
@@ -239,7 +245,7 @@
   <!-- PROJECTS -->
   <section id="projects" class="card reveal">
     <div class="card-label">// 04 — PROJECTS</div>
-    <h2>Build Log</h2>
+    <h2 class="glitch-target">Build Log</h2>
 
     <div class="projects-grid">
       <a href="https://github.com/Maty156/masu-hyprland-installer" target="_blank" class="project">
@@ -278,7 +284,7 @@
   <!-- TERMINAL -->
   <section id="terminal" class="card reveal">
     <div class="card-label">// 05 — TERMINAL</div>
-    <h2>MASU Terminal</h2>
+    <h2 class="glitch-target">MASU Terminal</h2>
 
     <div class="terminal" id="terminalBox">
       <p><span class="t-green">MASU Terminal v1.0</span> — type <span class="t-green">help</span> to begin</p>
@@ -294,14 +300,28 @@
   <!-- CONTACT -->
   <section id="contact" class="card reveal">
     <div class="card-label">// 06 — SECURE COMMS</div>
-    <h2>Contact Node</h2>
-
+    <h2 class="glitch-target">Contact Node</h2>
+    
     <div class="contact-content">
       <p>Looking to collaborate, have a question, or just want to ping my server?</p>
-      <a href="mailto:matyasabreham7@gmail.com" class="btn-glow">
-        <i class="fas fa-envelope"></i> Initiate Handshake
-      </a>
-
+      
+      <form id="secure-form" class="secure-form" autocomplete="off">
+        <div class="input-row">
+          <span class="prompt">ALIAS>$</span>
+          <input type="text" id="contact-alias" placeholder="guest_user" required>
+        </div>
+        <div class="input-row">
+          <span class="prompt">MSG>$</span>
+          <textarea id="contact-msg" placeholder="Enter transmission..." required rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-glow" id="btn-encrypt">
+            <i class="fas fa-lock"></i> Encrypt & Transmit
+          </button>
+        </div>
+        <p id="encrypt-status" style="margin-top: 15px; font-size: 13px; height: 18px; color: var(--green);"></p>
+      </form>
+      
       <div class="social-links">
         <a href="https://github.com/Maty156" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://twitter.com/mat_y156" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -321,6 +341,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  </div> <!-- end #main-content -->
 </body>
 
 </html>

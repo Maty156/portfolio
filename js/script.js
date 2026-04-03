@@ -125,7 +125,7 @@ if (terminalInput && terminalBox) {
 
   const commands = {
     help: () => printLine(
-      '<span style="color:#00ff9c">Available:</span> help, about, skills, projects, whoami, contact, clear, courses'
+      '<span style="color:#00ff9c">Available:</span> help, about, skills, projects, whoami, contact, clear, courses, github'
     ),
     about: () => printLine(
       "Matyas Abraham — Cybersecurity student from Addis Ababa, Ethiopia. Founder of MASU Cyber Academy."
@@ -144,6 +144,22 @@ if (terminalInput && terminalBox) {
       printLine('Opening courses... <a href="courses.html" style="color:#00ff9c" target="_blank">courses.html</a>');
     },
     clear: () => { terminalBox.innerHTML = ""; },
+    github: async () => {
+      printLine('Establishing secure connection to GitHub...');
+      try {
+        const res = await fetch('https://api.github.com/users/Maty156/repos?sort=updated&per_page=3');
+        const data = await res.json();
+        if (data && data.length > 0) {
+          data.forEach(repo => {
+            printLine(`> <a href="${repo.html_url}" style="color:#00ff9c" target="_blank">${repo.name}</a> - ⭐${repo.stargazers_count} [${repo.language || 'N/A'}]`);
+          });
+        } else {
+          printLine('No repositories found.');
+        }
+      } catch (e) {
+        printLine('<span style="color:#ff4444">Connection refused. Target host unreachable.</span>');
+      }
+    },
   };
 
   let history = [];
@@ -274,5 +290,145 @@ function setFilter(type, btnElement) {
     } else {
       sec.style.display = sec.dataset.section === type ? "" : "none";
     }
+  });
+}
+
+// ── BOOT SEQUENCE ─────────────────────────────
+const bootScreen = document.getElementById("boot-screen");
+const bootLog = document.getElementById("boot-log");
+const mainContent = document.getElementById("main-content");
+
+if (bootScreen && bootLog && mainContent) {
+  // Check if we already booted this session to avoid annoyance
+  if (!sessionStorage.getItem("booted")) {
+    const logs = [
+      "BIOS Date 04/03/26 21:24:55 Ver 08.00.15",
+      "CPU: AuthenticAMD Ryzen 9 Processor",
+      "Memory Test: 32768K OK",
+      "[ OK ] Starting udev Kernel Device Manager...",
+      "[ OK ] Started Network Manager.",
+      "Mounting /home/matyas/portfolio...",
+      "[ OK ] Mounted Portfolio Directory.",
+      "Initializing MASU Security Protocols...",
+      "Generating RSA Keys... Done.",
+      "Establishing link to root server...",
+      "[ OK ] Connection Established.",
+      "Loading GUI Framework..."
+    ];
+
+    let delay = 0;
+    logs.forEach((log, i) => {
+      delay += Math.random() * 200 + 100;
+      setTimeout(() => {
+        const p = document.createElement("p");
+        p.textContent = log;
+        bootLog.appendChild(p);
+        if (i === logs.length - 1) {
+          setTimeout(() => {
+            bootScreen.style.display = "none";
+            mainContent.style.display = "block";
+            void mainContent.offsetWidth;
+            mainContent.style.opacity = 1;
+            sessionStorage.setItem("booted", "true");
+          }, 600);
+        }
+      }, delay);
+    });
+  } else {
+    bootScreen.style.display = "none";
+    mainContent.style.display = "block";
+    mainContent.style.opacity = 1;
+  }
+}
+
+// ── WEB AUDIO BEEP ─────────────────────────────
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx;
+
+function playHoverBeep() {
+  if (!audioCtx) {
+    audioCtx = new AudioContext();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
+
+  gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.05);
+}
+
+document.querySelectorAll('a, button, .project, .tool-item, .btn-glow').forEach(el => {
+  el.addEventListener('mouseenter', playHoverBeep);
+});
+
+// ── GLITCHING TEXT ─────────────────────────────
+const glitchElements = document.querySelectorAll('.glitch-target');
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+
+glitchElements.forEach(el => {
+  // Save original if it has text, else fallback to picking from parent
+  const original = el.textContent || el.parentElement.childNodes[0].textContent.trim();
+  if(!el.textContent) el.textContent = original; // initialize
+
+  setInterval(() => {
+    let scrambled = '';
+    for (let i = 0; i < original.length; i++) {
+      scrambled += original[i] === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)];
+    }
+    el.textContent = scrambled;
+    setTimeout(() => {
+      el.textContent = original;
+    }, 150);
+  }, Math.random() * 5000 + 5000); 
+});
+
+// ── ENCRYPTED SECURE FORM ──────────────────────
+const secureForm = document.getElementById('secure-form');
+const btnEncrypt = document.getElementById('btn-encrypt');
+const encryptStatus = document.getElementById('encrypt-status');
+
+if (secureForm) {
+  secureForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const alias = document.getElementById('contact-alias').value;
+    const msg = document.getElementById('contact-msg').value;
+    
+    if(!alias || !msg) return;
+    
+    btnEncrypt.disabled = true;
+    let iterations = 0;
+    const maxIterations = 20;
+    
+    const encryptInterval = setInterval(() => {
+      encryptStatus.textContent = "ENCRYPTING OUTBOUND PKT... " + Math.random().toString(36).substring(2, 12).toUpperCase();
+      iterations++;
+      
+      if (iterations >= maxIterations) {
+        clearInterval(encryptInterval);
+        encryptStatus.textContent = "TRANSMITTED SUCCESSFULLY.";
+        encryptStatus.style.color = "var(--cyan)";
+        
+        setTimeout(() => {
+          const mailto = `mailto:matyasabreham7@gmail.com?subject=Secure Proxy from ${encodeURIComponent(alias)}&body=${encodeURIComponent(msg)}`;
+          window.location.href = mailto;
+          
+          secureForm.reset();
+          btnEncrypt.disabled = false;
+          setTimeout(() => encryptStatus.textContent = "", 3000);
+        }, 800);
+      }
+    }, 80);
   });
 }

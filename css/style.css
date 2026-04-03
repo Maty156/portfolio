@@ -34,6 +34,7 @@ body {
   font-family: 'Fira Code', monospace;
   overflow-x: hidden;
   line-height: 1.6;
+  cursor: crosshair;
 }
 
 /* SCROLLBAR */
@@ -1044,4 +1045,98 @@ footer {
 
 .course-filters button:hover::after {
   width: 60%;
+}
+
+/* =============================================
+   HACKER UX ADDITIONS
+   ============================================= */
+
+/* Global Cursor Override */
+a, button, .project, .tool-item, .btn-glow, input, textarea {
+  cursor: crosshair !important;
+}
+
+/* Boot Screen Overlay */
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  padding: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  color: var(--green);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#boot-log {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#boot-log p {
+  margin: 0;
+  text-shadow: 0 0 5px var(--green);
+  opacity: 0;
+  animation: log-fade 0.05s forwards;
+}
+
+@keyframes log-fade {
+  to { opacity: 1; }
+}
+
+/* Secure Contact Form */
+.secure-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto 30px;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(0, 255, 156, 0.02);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-row:focus-within {
+  border-color: var(--green-dim);
+  box-shadow: 0 0 10px rgba(0, 255, 156, 0.05);
+}
+
+.input-row .prompt {
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 1px;
+}
+
+.secure-form input,
+.secure-form textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  width: 100%;
+}
+
+.secure-form input::placeholder,
+.secure-form textarea::placeholder {
+  color: #333;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 10px;
 }
