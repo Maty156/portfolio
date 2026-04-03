@@ -426,17 +426,33 @@ if (secureForm) {
       
       if (iterations >= maxIterations) {
         clearInterval(encryptInterval);
-        encryptStatus.textContent = "TRANSMITTED SUCCESSFULLY.";
-        encryptStatus.style.color = "var(--cyan)";
+        encryptStatus.textContent = "UPLOADING TO SECURE SERVER...";
         
         setTimeout(() => {
-          const mailto = `mailto:matyasabreham7@gmail.com?subject=Secure Proxy from ${encodeURIComponent(alias)}&body=${encodeURIComponent(msg)}`;
-          window.location.href = mailto;
-          
-          secureForm.reset();
-          btnEncrypt.disabled = false;
-          setTimeout(() => encryptStatus.textContent = "", 3000);
-        }, 800);
+          fetch("https://formsubmit.co/ajax/matyasabreham7@gmail.com", {
+              method: "POST",
+              headers: { 
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                  _subject: `New MASU Transmission from: ${alias}`,
+                  Alias: alias,
+                  Message: msg
+              })
+          }).then(res => res.json())
+            .then(data => {
+              encryptStatus.textContent = "TRANSMISSION SENT SUCCESSFULLY.";
+              encryptStatus.style.color = "var(--cyan)";
+              secureForm.reset();
+              btnEncrypt.disabled = false;
+              setTimeout(() => encryptStatus.textContent = "", 4000);
+            }).catch(error => {
+              encryptStatus.textContent = "ERROR: PACKET DROPPED.";
+              encryptStatus.style.color = "var(--red)";
+              btnEncrypt.disabled = false;
+            });
+        }, 300);
       }
     }, 80);
   });
