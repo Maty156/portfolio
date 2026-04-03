@@ -36,19 +36,44 @@ if (canvas) {
   setInterval(drawMatrix, 50);
 }
 
-// ── SKILL BARS ─────────────────────────────────
+// ── SKILL RINGS ─────────────────────────────────
 const skillSection = document.querySelector("#skills");
 if (skillSection) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.querySelectorAll(".bar-fill").forEach(bar => {
-          const w = bar.getAttribute("data-width");
-          if (w) bar.style.width = w + "%";
+        entry.target.querySelectorAll(".skill-ring").forEach(ring => {
+          const percent = ring.getAttribute("data-percent");
+          const circle = ring.querySelector(".ring-fill");
+          const counter = ring.querySelector(".counter");
+          
+          if (percent && circle) {
+            const circumference = 283;
+            const offset = circumference - (circumference * percent) / 100;
+            circle.style.strokeDashoffset = offset;
+            
+            if (counter && counter.textContent === "0") {
+              let count = 0;
+              const target = parseInt(percent, 10);
+              const duration = 1500;
+              const interval = 30;
+              const step = Math.max(1, Math.floor(target / (duration / interval)));
+              
+              const updateCounter = setInterval(() => {
+                count += step;
+                if (count >= target) {
+                  count = target;
+                  clearInterval(updateCounter);
+                }
+                counter.textContent = count;
+              }, interval);
+            }
+          }
         });
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.3 });
 
   observer.observe(skillSection);
 }

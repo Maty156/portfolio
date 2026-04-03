@@ -359,45 +359,105 @@ nav a:hover::after { width: 60%; }
 }
 
 /* =============================================
-   SKILLS
+   SKILLS OVERHAUL
    ============================================= */
-.skill { margin-bottom: 18px; }
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: var(--text);
+.skills-ring-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  padding-top: 10px;
 }
 
-.skill-header p {
+.skill-ring {
+  position: relative;
+  width: 120px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
 }
 
-.skill-header i { color: var(--green); }
-
-.bar {
-  height: 5px;
-  background: #0a0a0a;
-  overflow: hidden;
-  border-radius: 2px;
+.skill-ring svg {
+  width: 100px;
+  height: 100px;
+  transform: rotate(-90deg);
+  overflow: visible;
 }
 
-.bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--green), var(--cyan));
-  box-shadow: 0 0 10px var(--green);
-  width: 0;
-  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 2px;
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 4;
 }
 
-.bar-fill.yellow {
-  background: linear-gradient(90deg, var(--yellow), #ffaa00);
-  box-shadow: 0 0 10px var(--yellow);
+.ring-fill {
+  fill: none;
+  stroke: url(#greenGradient);
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px var(--green-dim));
+  transition: stroke-dashoffset 2s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.yellow-ring .ring-fill {
+  stroke: url(#yellowGradient);
+  filter: drop-shadow(0 0 4px rgba(245, 197, 24, 0.3));
+}
+
+.skill-ring-content {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ring-icon {
+  font-size: 16px;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.skill-ring:hover .ring-icon {
+  color: var(--green);
+  text-shadow: 0 0 8px var(--green);
+}
+
+.yellow-ring:hover .ring-icon {
+  color: var(--yellow);
+  text-shadow: 0 0 8px var(--yellow);
+}
+
+.ring-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.ring-num .pct {
+  font-size: 10px;
+  color: var(--green);
+  margin-left: 2px;
+}
+
+.yellow-ring .pct {
+  color: var(--yellow);
+}
+
+.ring-name {
+  margin-top: 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 0.5px;
 }
 
 /* =============================================
