@@ -412,9 +412,10 @@ if (secureForm) {
   secureForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const alias = document.getElementById('contact-alias').value;
+    const email = document.getElementById('contact-email').value;
     const msg = document.getElementById('contact-msg').value;
     
-    if(!alias || !msg) return;
+    if(!alias || !email || !msg) return;
     
     btnEncrypt.disabled = true;
     let iterations = 0;
@@ -437,7 +438,9 @@ if (secureForm) {
               },
               body: JSON.stringify({
                   _subject: `New MASU Transmission from: ${alias}`,
+                  _replyto: email,
                   Alias: alias,
+                  Email: email,
                   Message: msg
               })
           }).then(res => res.json())
