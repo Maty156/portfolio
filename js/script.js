@@ -115,30 +115,71 @@ if (typeArea) {
   }, 7000);
 }
 
-// --- CONTACT FORM ---
+// --- CONTACT FORM (Formspree) ---
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
-    
+    const originalHTML = btn.innerHTML;
+
     btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
     btn.disabled = true;
 
-    // Simulate send logic
-    setTimeout(() => {
-      formStatus.textContent = '✓ Message transmitted successfully.';
-      contactForm.reset();
-      btn.innerHTML = originalText;
-      btn.disabled = false;
-      
-      setTimeout(() => { formStatus.textContent = ''; }, 5000);
-    }, 1500);
+    try {
+      const data = new FormData(contactForm);
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        formStatus.textContent = '✓ Message transmitted successfully.';
+        formStatus.style.color = '#00ffaa';
+        contactForm.reset();
+      } else {
+        const json = await res.json();
+        formStatus.textContent = json.errors ? json.errors.map(e => e.message).join(', ') : '✗ Something went wrong. Try again.';
+        formStatus.style.color = '#ff6b6b';
+      }
+    } catch (err) {
+      formStatus.textContent = '✗ Network error. Please try again.';
+      formStatus.style.color = '#ff6b6b';
+    }
+
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    setTimeout(() => { formStatus.textContent = ''; }, 6000);
   });
 }
+
+// --- KONAMI CODE EASTER EGG ---
+const konamiSequence = [
+  'ArrowUp','ArrowUp','ArrowDown','ArrowDown',
+  'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight',
+  'b','a'
+];
+let konamiProgress = 0;
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === konamiSequence[konamiProgress]) {
+    konamiProgress++;
+    if (konamiProgress === konamiSequence.length) {
+      document.getElementById('easter-egg').classList.add('active');
+      konamiProgress = 0;
+    }
+  } else {
+    konamiProgress = e.key === konamiSequence[0] ? 1 : 0;
+  }
+});
+
+// Close Easter egg on backdrop click
+document.getElementById('easter-egg')?.addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+});
 
 // --- ACTIVE LINK OBSERVER ---
 const sections = document.querySelectorAll('section[id]');
