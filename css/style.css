@@ -917,6 +917,42 @@ a { color: inherit; text-decoration: none; }
   border-color: rgba(0,242,255,0.12);
 }
 
+/* Desktop: make featured card a horizontal two-column layout for stronger visual hierarchy */
+@media (min-width: 900px) {
+  .project-card.featured {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 28px;
+    padding: 36px;
+    min-height: 300px;
+  }
+
+  .project-card.featured .pc-top { flex: 0 0 auto; margin-bottom: 0; }
+  .project-card.featured h3 { font-size: 22px; margin-top: 6px; }
+  .project-card.featured p { flex: 1 1 60%; margin-bottom: 0; color: var(--text-dim); }
+
+  /* Place CTA and tags in a right column stacked vertically */
+  .project-card.featured .pc-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 0 0 260px;
+  }
+
+  .project-card.featured .pc-cta {
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-size: 14px;
+    box-shadow: 0 12px 30px rgba(0,242,255,0.06);
+  }
+
+  .project-card.featured .pc-tags { justify-content: flex-end; margin-bottom: 0; }
+  .project-card.featured .pc-footer { grid-column: 1 / -1; margin-top: 18px; }
+}
+
 /* Muted archive card */
 .project-card.archive { opacity: 0.85; filter: grayscale(10%); }
 .project-card.archive .pc-tag { background: transparent; color: var(--text-faint); border-color: var(--surface-br); }
