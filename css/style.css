@@ -1086,13 +1086,12 @@ footer p {
 }
 
 /* Phone-specific: hide terminal and show nav links in a row */
-@media (max-width: 480px) {
-  /* Remove the terminal/code window on small phones */
+@media (max-width: 600px) {
+  /* Remove the terminal/code window on small phones and small tablets */
   .hero-visual, .code-window { display: none; }
 
-  /* Show nav links inline and hide the hamburger for very small screens */
-  .nav-toggle { display: none !important; }
-
+  /* Nav: keep hamburger for most small screens, but when there isn't space allow the
+     nav links to scroll horizontally instead of overflowing or wrapping awkwardly. */
   .nav-links {
     display: flex !important;
     position: static !important;
@@ -1102,14 +1101,27 @@ footer p {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    padding: 6px 8px !important;
     gap: 12px !important;
     justify-content: center;
     align-items: center;
     width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
+  /* If the mobile menu is explicitly opened, force row layout */
   .nav-links.open { display: flex !important; flex-direction: row !important; }
 
   .nav-links a { display: inline-block; padding: 8px 10px; }
+
+  /* Hide hamburger only on the very smallest devices where horizontal nav fits better */
+  @media (max-width: 420px) {
+    .nav-toggle { display: none !important; }
+  }
+
+  /* Make tag groups wrap more nicely */
+  .spill-tags, .pc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .spill-tags span, .pc-tags span { white-space: normal; }
 }
