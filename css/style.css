@@ -1187,8 +1187,8 @@ footer p {
 }
 
 /* Phone-specific: hide terminal and show nav links in a row */
-@media (max-width: 600px) {
-  /* Remove the terminal/code window on small phones and small tablets */
+@media (max-width: 768px) {
+  /* Remove the terminal/code window on small phones and smaller tablets */
   .hero-visual, .code-window { display: none; }
 
   /* Nav: keep hamburger for most small screens, but when there isn't space allow the
