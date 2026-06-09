@@ -244,8 +244,10 @@
     .no-results p { font-size: 15px; }
 
     @media (max-width: 600px) {
-      .courses-toolbar { flex-direction: column; align-items: stretch; }
-      .search-wrap { max-width: 100%; margin-left: 0; }
+      .courses-toolbar { flex-direction: row; align-items: center; gap: 12px; }
+      .filter-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 8px; }
+      .filter-tabs button { white-space: nowrap; }
+      .search-wrap { max-width: 220px; margin-left: auto; }
       .course-grid { grid-template-columns: 1fr; }
     }
   </style>
