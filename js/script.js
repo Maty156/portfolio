@@ -81,6 +81,32 @@ if (navToggle) {
   });
 }
 
+// Close mobile nav when clicking outside or pressing Escape
+document.addEventListener('click', (e) => {
+  try {
+    if (!navLinks || !navToggle) return;
+    if (!navLinks.classList.contains('open')) return;
+    const target = e.target;
+    if (!navLinks.contains(target) && !navToggle.contains(target)) {
+      navLinks.classList.remove('open');
+      const icon = navToggle.querySelector('i');
+      if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+    }
+  } catch (err) { /* noop */ }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    try {
+      if (navLinks && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        const icon = navToggle && navToggle.querySelector('i');
+        if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+      }
+    } catch (err) { /* noop */ }
+  }
+});
+
 // --- HERO TERMINAL TYPEWRITER ---
 const typeArea = document.getElementById('typeArea');
 if (typeArea) {
