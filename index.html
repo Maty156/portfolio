@@ -1,357 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matyas Abraham — Developer & Security Researcher</title>
-  <meta name="description" content="Portfolio of Matyas Abraham — ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia. Founder of MASU Cyber Academy.">
+  <meta name="description" content="Portfolio of Matyas Abraham — ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-
-  <div id="main-content">
-
-    <!-- NAV -->
-    <nav id="navbar">
-        <div class="nav-inner">
-        <a href="#" class="nav-logo">MA</a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#journey">Journey</a>
-          <a href="#projects">Projects</a>
-          <a href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener">Courses</a>
-          <a href="#contact" class="nav-cta">Contact</a>
-        </div>
-        <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><span>MA</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#projects">Projects</a>
+        <a href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener">Courses</a>
+        <a href="#contact" class="nav-cta">Contact</a>
       </div>
-    </nav>
+      <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
 
-    <!-- HERO -->
-    <section id="hero">
-      <div class="hero-inner">
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          <span>Addis Ababa, Ethiopia</span>
-        </div>
-        <h1 class="hero-name">Matyas<br><span>Abraham</span></h1>
-        <p class="hero-tagline">ICT Student &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Security Researcher</p>
-        <p class="hero-desc">I build open-source tools, automate Linux environments, and teach cybersecurity fundamentals. Founder of <strong>MASU Cyber Academy</strong> — a free learning platform for the next generation of Ethiopian developers.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="https://github.com/Maty156" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-glow g1"></div>
+      <div class="hero-glow g2"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge"><span class="dot-pulse"></span> Available for opportunities</div>
+        <h1>Matyas<br><span class="grad-text">Abraham</span></h1>
+        <p class="hero-sub">ICT Student · Developer · Security Researcher</p>
+        <p class="hero-desc">Building open-source tools, automating Linux environments, and teaching cybersecurity. Founder of <strong>MASU Cyber Academy</strong> — free education for Ethiopian developers.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+          <a href="https://github.com/Maty156" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
         </div>
         <div class="hero-stats">
-          <div class="hstat"><span>8+</span><p>Open Source Tools</p></div>
-          <div class="hstat"><span>3+</span><p>Years on Linux</p></div>
-          <div class="hstat"><span>50+</span><p>Students Trained</p></div>
+          <div class="stat"><strong>8+</strong><span>Open Source Tools</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>3+</strong><span>Years on Linux</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>50+</strong><span>Students Trained</span></div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="code-window">
-          <div class="cw-bar">
-            <div class="cw-dots"><span></span><span></span><span></span></div>
-            <p class="cw-title">matyas@masu ~ $</p>
-            <button class="copy-btn" id="copyTerminal" aria-label="Copy terminal text">Copy</button>
+      <div class="hero-right">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="t-dots"><span></span><span></span><span></span></div>
+            <span class="t-title">matyas@masu:~</span>
           </div>
-          <div class="cw-body" id="typeArea"></div>
+          <div class="terminal-body" id="typeArea"></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-      <div class="container">
-        <div class="section-label">About</div>
-        <div class="about-grid">
-          <div class="about-text">
-            <h2>Building things,<br>learning everything.</h2>
-            <p>I'm an ICT student at <strong>Nifas Silk Polytechnic College</strong> with a focus on cybersecurity, Linux systems, and open-source software development. Self-taught across ethical hacking, web development, and automation scripting.</p>
-            <p>Under the <strong>MASU</strong> brand, I've published multiple tools used by developers in the Linux community — including a Hyprland desktop installer and a terminal environment setup script that gained significant traction on Reddit's r/zsh and r/unixporn.</p>
-            <p>I conduct corporate IT training and contribute actively to open-source projects. My goal is to make quality tech education accessible — especially in Ethiopia.</p>
-          </div>
-          <div class="about-cards">
-            <div class="acard stagger">
-              <i class="fab fa-linux"></i>
-              <h4>Linux & Systems</h4>
-              <p>Arch Linux, Hyprland, BlackArch. Deep experience with system configuration, automation, and tiling window managers.</p>
-            </div>
-            <div class="acard stagger">
-              <i class="fas fa-shield-halved"></i>
-              <h4>Cybersecurity</h4>
-              <p>Web security, network analysis, ethical hacking fundamentals. TryHackMe certified. Active on CTF platforms.</p>
-            </div>
-            <div class="acard stagger">
-              <i class="fas fa-code"></i>
-              <h4>Development</h4>
-              <p>Frontend web development, Bash scripting, Node.js/Express. Building tools that solve real problems for real users.</p>
-            </div>
-            <div class="acard stagger">
-              <i class="fas fa-graduation-cap"></i>
-              <h4>Teaching</h4>
-              <p>Corporate IT training and free online courses via MASU Cyber Academy — making cybersecurity accessible to everyone.</p>
-            </div>
-          </div>
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <div class="section-label">About</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Building things,<br>learning everything.</h2>
+          <p>I'm an ICT student at <strong>Nifas Silk Polytechnic College</strong> with a focus on cybersecurity, Linux systems, and open-source development. Self-taught across ethical hacking, web development, and automation scripting.</p>
+          <p>Under the <strong>MASU</strong> brand, I've published tools used by the Linux community — including a Hyprland desktop installer and a terminal setup script that gained traction on Reddit's r/zsh and r/unixporn.</p>
+        </div>
+        <div class="about-cards">
+          <div class="acard stagger"><i class="fab fa-linux"></i><h4>Linux & Systems</h4><p>Arch Linux, Hyprland, BlackArch. Deep experience with system configuration and tiling WMs.</p></div>
+          <div class="acard stagger"><i class="fas fa-shield-halved"></i><h4>Cybersecurity</h4><p>Web security, network analysis, ethical hacking. TryHackMe certified. Active on CTF platforms.</p></div>
+          <div class="acard stagger"><i class="fas fa-code"></i><h4>Development</h4><p>Frontend web, Bash scripting, Node.js/Express. Building tools that solve real problems.</p></div>
+          <div class="acard stagger"><i class="fas fa-graduation-cap"></i><h4>Teaching</h4><p>Corporate IT training and free online courses via MASU Cyber Academy.</p></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section reveal">
-      <div class="container">
-        <div class="section-label">Skills</div>
-        <h2>Technical Expertise</h2>
-        <div class="skills-pills-grid">
-          <div class="spill-group stagger">
-            <div class="spill-group-header">
-              <i class="fab fa-linux"></i>
-              <h4>Systems &amp; DevOps</h4>
-            </div>
-            <div class="spill-tags">
-              <span>Arch Linux</span><span>Hyprland / Wayland</span><span>Bash Scripting</span>
-              <span>ZSH</span><span>Git</span><span>pywal / theming</span><span>systemd</span>
-              <span>Vim / Neovim</span>
-            </div>
+  <!-- SKILLS -->
+  <section id="skills" class="section reveal">
+    <div class="container">
+      <div class="section-label">Skills</div>
+      <h2>Technical Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-group stagger">
+          <div class="skill-group-title"><i class="fab fa-linux"></i> Systems & DevOps</div>
+          <div class="skill-tags">
+            <span>Arch Linux</span><span>Hyprland</span><span>Bash</span><span>ZSH</span><span>Git</span><span>pywal</span><span>systemd</span><span>Neovim</span>
           </div>
-          <div class="spill-group stagger">
-            <div class="spill-group-header">
-              <i class="fas fa-code"></i>
-              <h4>Development</h4>
-            </div>
-            <div class="spill-tags">
-              <span>HTML / CSS / JS</span><span>Node.js</span><span>Express</span>
-              <span>Flutter / Dart</span><span>Python</span><span>MongoDB</span>
-              <span>REST APIs</span><span>PWA</span>
-            </div>
+        </div>
+        <div class="skill-group stagger">
+          <div class="skill-group-title"><i class="fas fa-code"></i> Development</div>
+          <div class="skill-tags">
+            <span>HTML/CSS/JS</span><span>Node.js</span><span>Express</span><span>Python</span><span>MongoDB</span><span>REST APIs</span><span>Flutter</span>
           </div>
-          <div class="spill-group stagger">
-            <div class="spill-group-header">
-              <i class="fas fa-shield-halved"></i>
-              <h4>Security</h4>
-            </div>
-            <div class="spill-tags">
-              <span>Web Security</span><span>Burp Suite</span><span>Nmap</span>
-              <span>Wireshark</span><span>SQLMap</span><span>Metasploit</span>
-              <span>OSINT</span><span>CTF</span>
-            </div>
+        </div>
+        <div class="skill-group stagger">
+          <div class="skill-group-title"><i class="fas fa-shield-halved"></i> Security</div>
+          <div class="skill-tags">
+            <span>Web Security</span><span>Burp Suite</span><span>Nmap</span><span>Wireshark</span><span>Metasploit</span><span>OSINT</span><span>CTF</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- JOURNEY -->
-    <section id="journey" class="section reveal">
-      <div class="container">
-        <div class="section-label">Journey</div>
-        <h2>How I got here.</h2>
-        <div class="timeline">
-
-          <div class="tl-item stagger">
-            <div class="tl-marker"></div>
-            <div class="tl-content">
-              <span class="tl-date">2025</span>
-              <h4>Getting started</h4>
-              <p>I began my technology journey in 2025 while studying ICT. Most of my learning has been self-directed — reading, following tutorials, and experimenting with small projects to understand core concepts.</p>
-            </div>
+  <!-- JOURNEY -->
+  <section id="journey" class="section reveal">
+    <div class="container">
+      <div class="section-label">Journey</div>
+      <h2>How I got here.</h2>
+      <div class="timeline">
+        <div class="tl-item stagger">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">2025</span>
+            <h4>Getting Started</h4>
+            <p>Began my technology journey while studying ICT. Most learning self-directed — reading, tutorials, and experimenting with small projects.</p>
           </div>
-
-          <div class="tl-item stagger">
-            <div class="tl-marker"></div>
-            <div class="tl-content">
-              <span class="tl-date">2025</span>
-              <h4>Hands-on Linux</h4>
-              <p>I adopted Arch Linux as my daily environment and learned by installing, configuring, breaking, and fixing the system. That process taught me practical troubleshooting for boot issues, desktop environments, display managers, and system configuration.</p>
-            </div>
+        </div>
+        <div class="tl-item stagger">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">2025</span>
+            <h4>Hands-on Linux</h4>
+            <p>Adopted Arch Linux as my daily environment. Learned by installing, configuring, breaking, and fixing — practical troubleshooting at every step.</p>
           </div>
-
-          <div class="tl-item stagger">
-            <div class="tl-marker"></div>
-            <div class="tl-content">
-              <span class="tl-date">2025–2026</span>
-              <h4>Networking & systems</h4>
-              <p>I studied networking fundamentals — TCP/IP, routing, servers, and essentials of Active Directory and web technologies — building lab environments to practise configuring services and troubleshooting connectivity.</p>
-            </div>
+        </div>
+        <div class="tl-item stagger">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">2025–2026</span>
+            <h4>Networking & Systems</h4>
+            <p>Studied TCP/IP, routing, servers, Active Directory. Built lab environments to practise configuring services and troubleshooting connectivity.</p>
           </div>
-
-          <div class="tl-item stagger">
-            <div class="tl-marker"></div>
-            <div class="tl-content">
-              <span class="tl-date">2026</span>
-              <h4>Security practice</h4>
-              <p>I practice cybersecurity in legal lab environments, focusing on understanding how systems work and how vulnerabilities arise. My approach is hands-on, cautious, and focused on learning rather than publicity.</p>
-            </div>
+        </div>
+        <div class="tl-item stagger">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">2026</span>
+            <h4>Security Practice</h4>
+            <p>Practising cybersecurity in legal lab environments. Focused on understanding how vulnerabilities arise — hands-on and cautious.</p>
           </div>
-
-          <div class="tl-item stagger">
-            <div class="tl-marker"></div>
-            <div class="tl-content">
-              <span class="tl-date">Present</span>
-              <h4>Active learner & problem solver</h4>
-              <p>I enjoy solving technical problems and learning by doing. As an ICT student and primarily self-taught technologist, I continue to build small tools, troubleshoot real systems, and grow my skills in Linux, networking, cybersecurity, and software development.</p>
-              <span class="tl-badge">Learning</span>
-            </div>
+        </div>
+        <div class="tl-item stagger">
+          <div class="tl-dot active"></div>
+          <div class="tl-body">
+            <span class="tl-year">Present</span>
+            <h4>Active Learner & Problem Solver</h4>
+            <p>Building tools, troubleshooting real systems, growing skills in Linux, networking, security, and web development.</p>
+            <span class="tl-badge">Learning</span>
           </div>
-
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section reveal">
-      <div class="container">
-        <div class="section-label">Projects</div>
-        <h2>Featured Work</h2>
-        <div class="projects-grid">
+  <!-- PROJECTS -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <div class="section-label">Projects</div>
+      <h2>Featured Work</h2>
 
-          <a href="https://github.com/Maty156/masu-hyprland-installer" target="_blank" class="project-card featured stagger">
-            <div class="pc-top">
-              <div class="pc-icon-large"><i class="fas fa-desktop"></i></div>
-              <span class="pc-tag">v2.3 · Open Source</span>
+      <div class="projects-wrap">
+
+        <!-- Featured -->
+        <a href="https://github.com/Maty156/masu-hyprland-installer" target="_blank" class="pcard pcard--featured stagger">
+          <div class="pcard-inner">
+            <div class="pcard-head">
+              <div class="pcard-icon"><i class="fas fa-desktop"></i></div>
+              <span class="pcard-label">v2.3 · Open Source</span>
             </div>
             <h3>MASU Hyprland Installer</h3>
             <p>A complete Hyprland desktop rice installer with a pywal dynamic color pipeline, Waybar theming, swaync notifications, matuwall wallpaper picker, hyprlock, and SDDM. One-command setup with multi-distro support.</p>
-            <div class="pc-tags">
-              <span>Bash</span><span>Arch Linux</span><span>Hyprland</span><span>pywal</span>
-            </div>
-            <div class="pc-actions">
-              <a class="pc-cta" href="https://github.com/Maty156/masu-hyprland-installer" target="_blank">View on GitHub</a>
-            </div>
-            <div class="pc-footer">
+            <div class="pcard-tags"><span>Bash</span><span>Arch Linux</span><span>Hyprland</span><span>pywal</span></div>
+            <div class="pcard-foot">
               <span><i class="fab fa-github"></i> Maty156/masu-hyprland-installer</span>
-              <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-          </a>
-
-          <a href="https://github.com/Maty156/masu-terminal-installer" target="_blank" class="project-card stagger">
-            <div class="pc-top">
-              <div class="pc-icon"><i class="fas fa-terminal"></i></div>
-              <span class="pc-tag">v7 · Popular</span>
-            </div>
-            <h3>MASU Terminal Installer</h3>
-            <p>Automated ZSH environment setup with Powerlevel10k, plugins, Nerd Fonts, and safe .zshrc handling. Multi-distro OS detection. Thousands of views on r/zsh and r/unixporn after launch.</p>
-            <div class="pc-tags">
-              <span>Bash</span><span>ZSH</span><span>Linux</span>
-            </div>
-            <div class="pc-footer">
-              <span><i class="fab fa-github"></i> Maty156/masu-terminal-installer</span>
-              <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-          </a>
-
-          <a href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener" class="project-card stagger">
-            <div class="pc-top">
-              <div class="pc-icon"><i class="fas fa-graduation-cap"></i></div>
-              <span class="pc-ribbon">Live</span>
-            </div>
-            <h3>MASU Cyber Academy</h3>
-            <p>A free cybersecurity learning platform for Ethiopian students — 10 lessons, quizzes, and certificates. Built with Node.js, Express, and MongoDB. Deployed on Render with MongoDB Atlas.</p>
-            <div class="pc-tags">
-              <span>Node.js</span><span>Express</span><span>MongoDB</span><span>HTML/CSS</span>
-            </div>
-            <div class="pc-actions">
-              <a class="pc-cta" href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener">Open Platform</a>
-            </div>
-            <div class="pc-footer">
-              <span><i class="fas fa-globe"></i> masu-cyber-academy.onrender.com</span>
-              <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-          </a>
-
-          <a href="courses.html" target="_blank" rel="noopener" class="project-card stagger archive">
-            <div class="pc-top">
-              <div class="pc-icon"><i class="fas fa-archive"></i></div>
-              <span class="pc-tag">Backup</span>
-            </div>
-            <h3>Courses — Archive</h3>
-            <p>Local backup archive of cybersecurity course videos and materials. Use this page as an offline reference; the live platform hosts the full interactive experience.</p>
-            <div class="pc-tags">
-              <span>Videos</span><span>Archive</span><span>Reference</span>
-            </div>
-            <div class="pc-footer">
-              <span><i class="fas fa-folder"></i> courses.html (archive)</span>
-              <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-          </a>
-
-        </div>
-        <div class="projects-more">
-          <a href="https://github.com/Maty156" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> All projects on GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal">
-      <div class="container">
-        <div class="section-label">Contact</div>
-        <div class="contact-grid">
-          <div class="contact-text">
-            <h2>Let's connect.</h2>
-            <p>I'm open to collaborations, internship opportunities, and project discussions. Feel free to reach out.</p>
-            <div class="contact-info">
-              <div><i class="fas fa-location-dot"></i> Addis Ababa, Ethiopia</div>
-              <div><i class="fas fa-user-graduate"></i> Nifas Silk Polytechnic College</div>
-              <div><i class="fab fa-github"></i> <a href="https://github.com/Maty156" target="_blank">github.com/Maty156</a></div>
-              <div><i class="fab fa-twitter"></i> <a href="https://twitter.com/mat_y156" target="_blank">@mat_y156</a></div>
+              <span class="pcard-cta">View on GitHub <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
-          <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="field">
-              <label>Name</label>
-              <input type="text" id="contact-name" placeholder="Your name" required>
-            </div>
-            <div class="field">
-              <label>Email</label>
-              <input type="email" id="contact-email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label>Message</label>
-              <textarea id="contact-msg" rows="4" placeholder="What's on your mind?" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-            <p id="form-status"></p>
-          </form>
-        </div>
-      </div>
-    </section>
+        </a>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="container footer-inner">
-        <p>© 2026 Matyas Abraham · Addis Ababa, Ethiopia</p>
-        <div class="footer-links">
-          <a href="https://github.com/Maty156" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://twitter.com/mat_y156" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-    </footer>
+        <!-- 3-column row -->
+        <div class="pcard-row">
 
-  </div><!-- /#main-content -->
+          <a href="https://github.com/Maty156/masu-terminal-installer" target="_blank" class="pcard stagger">
+            <div class="pcard-inner">
+              <div class="pcard-head">
+                <div class="pcard-icon"><i class="fas fa-terminal"></i></div>
+                <span class="pcard-label">v7 · Popular</span>
+              </div>
+              <h3>MASU Terminal Installer</h3>
+              <p>Automated ZSH environment setup with Powerlevel10k, plugins, Nerd Fonts, and safe .zshrc handling. Multi-distro OS detection. Thousands of views on r/zsh and r/unixporn.</p>
+              <div class="pcard-tags"><span>Bash</span><span>ZSH</span><span>Linux</span></div>
+              <div class="pcard-foot">
+                <span><i class="fab fa-github"></i> Maty156/masu-terminal-installer</span>
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener" class="pcard stagger">
+            <div class="pcard-inner">
+              <div class="pcard-head">
+                <div class="pcard-icon"><i class="fas fa-graduation-cap"></i></div>
+                <span class="pcard-live"><span class="live-dot"></span>Live</span>
+              </div>
+              <h3>MASU Cyber Academy</h3>
+              <p>Free cybersecurity learning platform for Ethiopian students — 10 lessons, quizzes, and certificates. Built with Node.js, Express, and MongoDB on Render.</p>
+              <div class="pcard-tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>HTML/CSS</span></div>
+              <div class="pcard-foot">
+                <span><i class="fas fa-globe"></i> masu-cyber-academy.onrender.com</span>
+                <span class="pcard-cta-sm">Open <i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="courses.html" target="_blank" rel="noopener" class="pcard pcard--muted stagger">
+            <div class="pcard-inner">
+              <div class="pcard-head">
+                <div class="pcard-icon"><i class="fas fa-archive"></i></div>
+                <span class="pcard-label">Backup</span>
+              </div>
+              <h3>Courses — Archive</h3>
+              <p>Local backup archive of cybersecurity course videos and materials. Use as an offline reference; the live platform hosts the full interactive experience.</p>
+              <div class="pcard-tags"><span>Videos</span><span>Archive</span><span>Reference</span></div>
+              <div class="pcard-foot">
+                <span><i class="fas fa-folder"></i> courses.html</span>
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </div>
+            </div>
+          </a>
+
+        </div><!-- /.pcard-row -->
+
+      </div><!-- /.projects-wrap -->
+
+      <div class="projects-more">
+        <a href="https://github.com/Maty156" target="_blank" class="btn-outline"><i class="fab fa-github"></i> All projects on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <h2>Let's connect.</h2>
+          <p>Open to collaborations, internship opportunities, and project discussions. Feel free to reach out.</p>
+          <div class="contact-links">
+            <div><i class="fas fa-location-dot"></i> Addis Ababa, Ethiopia</div>
+            <div><i class="fas fa-user-graduate"></i> Nifas Silk Polytechnic College</div>
+            <div><i class="fab fa-github"></i> <a href="https://github.com/Maty156" target="_blank">github.com/Maty156</a></div>
+            <div><i class="fab fa-twitter"></i> <a href="https://twitter.com/mat_y156" target="_blank">@mat_y156</a></div>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field"><label>Name</label><input type="text" placeholder="Your name" required></div>
+          <div class="field"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
+          <div class="field"><label>Message</label><textarea rows="4" placeholder="What's on your mind?" required></textarea></div>
+          <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+          <p id="form-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 Matyas Abraham · Addis Ababa, Ethiopia</p>
+      <div class="footer-links">
+        <a href="https://github.com/Maty156" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/mat_y156" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
 
   <!-- EASTER EGG -->
   <div id="easter-egg">
     <div class="egg-box">
-      <pre>
- ███╗   ███╗ █████╗ ███████╗██╗   ██╗
+      <pre> ███╗   ███╗ █████╗ ███████╗██╗   ██╗
  ████╗ ████║██╔══██╗██╔════╝██║   ██║
  ██╔████╔██║███████║███████╗██║   ██║
  ██║╚██╔╝██║██╔══██║╚════██║██║   ██║
  ██║ ╚═╝ ██║██║  ██║███████║╚██████╔╝
- ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝ ╚═════╝ </pre>
+ ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝ ╚═════╝</pre>
       <h3>You found the secret 👾</h3>
       <p>Konami code on a portfolio? Classic hacker move.<br>
-      <code style="color:var(--accent);font-size:13px;">↑ ↑ ↓ ↓ ← → ← → B A</code><br><br>
-      You clearly belong in the MASU community.</p>
-      <button class="egg-close" onclick="document.getElementById('easter-egg').classList.remove('active')">[ close ]</button>
+      <code>↑ ↑ ↓ ↓ ← → ← → B A</code></p>
+      <button onclick="document.getElementById('easter-egg').classList.remove('active')">[ close ]</button>
     </div>
   </div>
 
